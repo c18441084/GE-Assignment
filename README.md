@@ -1,1 +1,1 @@
-# GE-Assignment
+For my games engine assignment, I would like to make a music visualer which moves to the different beats of music. The movement of objects to the sound of music makes me calm and also makes people less stressed and relax. 
