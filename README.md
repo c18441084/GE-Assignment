@@ -1,1 +1,3 @@
-For my games engine assignment, I would like to make a music visualer which moves to the different beats of music. The movement of objects to the sound of music makes me calm and also makes people less stressed and relax. 
+For my Games engine assignment, I would like to make a music visualiser that moves and reacts to different types of beats and 
+music in a song. Maybe even have a 3D character beside that dances or moves whenever a song is playing. The visualiser will
+also have a 3D form and likely to be a sphere shape. 
