@@ -6,11 +6,13 @@ public class TerrainGen : MonoBehaviour
 {
   public int counter = 0;
   public float i = 244;
+  public AudioSource source;
   public Material Mountain_sky;
   public Material Dessert_sky;
     // Start is called before the first frame update
     void Start()
     {
+      source.Play();
       RenderSettings.skybox = Mountain_sky;
       GameObject.Find("Car").transform.position = new Vector3(120, 35, 247);
     }
