@@ -14,7 +14,7 @@ public class TerrainGen : MonoBehaviour
     {
       source.Play();
       RenderSettings.skybox = Mountain_sky;
-      GameObject.Find("Car").transform.position = new Vector3(120, 35, 247);
+      GameObject.Find("Car").transform.position = new Vector3(124, 35, 247);
     }
 
     // Update is called once per frame
