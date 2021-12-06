@@ -9,22 +9,27 @@ public class TankController : MonoBehaviour {
     public float moveSpeed = 20.0f;
     public AudioSource crash;
 
-	// Update is called once per frame
-	void Update () {
-        if (Input.GetKey(KeyCode.Escape))
-        {
-            Application.Quit();
-        }
-        transform.Translate(0, 0, Input.GetAxis("Vertical") * moveSpeed * Time.deltaTime);
-        transform.Rotate(0, Input.GetAxis("Horizontal") * rotationSpeed * Time.deltaTime, 0);
-
-        void OnTriggerEnter(Collider other)
-        {
-          if(other.gameObject.name == "Car")
-          {
-            crash.Play();
-          }
-        }
-
+    void Start ()
+    {
+      crash = GameObject.FindObjectOfType<AudioSource>();
     }
+
+    void OnCollisionEnter(Collision collision)
+    {
+      if(collision.gameObject.name == "Car")
+      {
+        crash.Play();
+      }
+    }
+
+  	// Update is called once per frame
+  	void Update () {
+          if (Input.GetKey(KeyCode.Escape))
+          {
+              Application.Quit();
+          }
+          transform.Translate(0, 0, Input.GetAxis("Vertical") * moveSpeed * Time.deltaTime);
+          transform.Rotate(0, Input.GetAxis("Horizontal") * rotationSpeed * Time.deltaTime, 0);
+
+      }
 }
