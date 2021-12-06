@@ -23,16 +23,16 @@ public class TerrainGen : MonoBehaviour
       if(GameObject.Find("Bus").transform.position.z>(i)){
         //GameObject.Find("Bus").transform.position = new Vector3(127, 37, 11);
         if(counter == 0){
-          GameObject.Find("Dessert").transform.position = new Vector3(0, 18, i);
+          GameObject.Find("Dessert").transform.position = new Vector3(0, 0, i);
           RenderSettings.skybox = Dessert_sky;
-          GameObject.Find("Mountain Range").transform.position = new Vector3(0, -1000, i);
+          GameObject.Find("Mountain").transform.position = new Vector3(0, -1000, i);
           i = i + 244;
           GameObject.Find("Car").transform.position = new Vector3(120, 34, i);
           GameObject.Find("Car").transform.rotation = Quaternion.Euler(0, 180, 0);
           counter = 1;
         }
         else if(counter == 1){
-          GameObject.Find("Mountain Range").transform.position = new Vector3(0, 0, i);
+          GameObject.Find("Mountain").transform.position = new Vector3(0, 0, i);
           RenderSettings.skybox = Mountain_sky;
           GameObject.Find("Dessert").transform.position = new Vector3(0, -1000, i);
           i = i + 244;

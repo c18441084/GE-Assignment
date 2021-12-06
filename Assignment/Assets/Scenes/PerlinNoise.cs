@@ -18,6 +18,7 @@ public class PerlinNoise : MonoBehaviour
         GenerateOffset();
         Terrain terrain = GetComponent<Terrain>();
         terrain.terrainData = GenerateTerrain(terrain.terrainData);
+        flat();
     }
 
     void GenerateOffset()
@@ -53,5 +54,24 @@ public class PerlinNoise : MonoBehaviour
         float yCoordinate = ((float)y / terrain_height) * terrain_scale + terrain_offset_y;
         return Mathf.PerlinNoise(xCoordinate, yCoordinate);
     }
+
+    //Make a flat part of the terrain
+    void flat()
+        {
+            Terrain terrain = GetComponent<Terrain>();
+            int Axis_x = terrain.terrainData.heightmapResolution;
+            int Axis_z = terrain.terrainData.heightmapResolution;
+            float[,] heights = terrain.terrainData.GetHeights(0, 0, Axis_x, Axis_z);
+
+            for (int x = Axis_x / 2 - (terrain_height/2); x < Axis_x / 2 + (terrain_height/2); x++)
+            {
+                for (int z = Axis_z / 2 - 23; z < Axis_z / 2 + 23; z++)
+                {
+                    heights[x, z] = 0;
+                }
+            }
+            terrain.terrainData.SetHeights(0, 0, heights);
+
+        }
 
 }
