@@ -65,7 +65,7 @@ public class PerlinNoise : MonoBehaviour
 
             for (int x = Axis_x / 2 - (terrain_height/2); x < Axis_x / 2 + (terrain_height/2); x++)
             {
-                for (int z = Axis_z / 2 - 23; z < Axis_z / 2 + 23; z++)
+                for (int z = Axis_z / 2 - 13; z < Axis_z / 2 + 13; z++)
                 {
                     heights[x, z] = 0;
                 }
