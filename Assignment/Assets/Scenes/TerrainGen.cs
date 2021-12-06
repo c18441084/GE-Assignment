@@ -12,15 +12,15 @@ public class TerrainGen : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-      source.Play();
+      source.Play(1);
       RenderSettings.skybox = Mountain_sky;
     }
 
     // Update is called once per frame
     void Update()
     {
-      if(GameObject.Find("Bus").transform.position.z>(i)){
-        //GameObject.Find("Bus").transform.position = new Vector3(127, 37, 11);
+      if(GameObject.Find("Bus").transform.position.z>(i))
+      {
         if(counter == 0){
           GameObject.Find("Dessert").transform.position = new Vector3(0, -5, i);
           RenderSettings.skybox = Dessert_sky;
@@ -30,12 +30,13 @@ public class TerrainGen : MonoBehaviour
           GameObject.Find("Car").transform.rotation = Quaternion.Euler(0, 180, 0);
           counter = 1;
         }
-        else if(counter == 1){
+        else if(counter == 1)
+        {
           GameObject.Find("Mountain").transform.position = new Vector3(0, 0, i);
           RenderSettings.skybox = Mountain_sky;
           GameObject.Find("Dessert").transform.position = new Vector3(0, -1000, i);
           i = i + 244;
-          GameObject.Find("Car").transform.position = new Vector3(136, 1, i-2);
+          GameObject.Find("Car").transform.position = new Vector3(136, 1, i-20);
           GameObject.Find("Car").transform.rotation = Quaternion.Euler(0, 180, 0);
           counter = 0;
         }

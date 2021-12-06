@@ -74,4 +74,11 @@ public class PerlinNoise : MonoBehaviour
 
         }
 
+      /*  void OnTriggerEnter(Collider other)
+        {
+          if(other.gameObject.name == "Car")
+          {
+            source.Play(1);
+          }
+        }*/
 }
