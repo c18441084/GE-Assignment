@@ -12,7 +12,7 @@ public class TerrainGen : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-      source.Play(1);
+      source.Play();
       RenderSettings.skybox = Mountain_sky;
     }
 

@@ -7,14 +7,10 @@ public class TankController : MonoBehaviour {
     [Range(0, 360)]
     public float rotationSpeed = 180f;
     public float moveSpeed = 20.0f;
-
-    // Use this for initialization
-    void Start () {
-    }
+    public AudioSource crash;
 
 	// Update is called once per frame
 	void Update () {
-
         if (Input.GetKey(KeyCode.Escape))
         {
             Application.Quit();
@@ -22,7 +18,13 @@ public class TankController : MonoBehaviour {
         transform.Translate(0, 0, Input.GetAxis("Vertical") * moveSpeed * Time.deltaTime);
         transform.Rotate(0, Input.GetAxis("Horizontal") * rotationSpeed * Time.deltaTime, 0);
 
+        void OnTriggerEnter(Collider other)
+        {
+          if(other.gameObject.name == "Car")
+          {
+            crash.Play();
+          }
+        }
+
     }
-
-
 }

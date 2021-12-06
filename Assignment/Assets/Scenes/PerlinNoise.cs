@@ -73,12 +73,4 @@ public class PerlinNoise : MonoBehaviour
             terrain.terrainData.SetHeights(0, 0, heights);
 
         }
-
-      /*  void OnTriggerEnter(Collider other)
-        {
-          if(other.gameObject.name == "Car")
-          {
-            source.Play(1);
-          }
-        }*/
 }
