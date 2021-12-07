@@ -28,7 +28,7 @@ public class TerrainGen : MonoBehaviour
           RenderSettings.skybox = Dessert_sky;
           GameObject.Find("Mountain").transform.position = new Vector3(0, -1000, i);
           i = i + 235;
-          GameObject.Find("Lorry").transform.position = new Vector3(132, 5, i-70);
+          GameObject.Find("Lorry").transform.position = new Vector3(132, 5, i-40);
           GameObject.Find("Lorry").transform.rotation = Quaternion.Euler(0, 180, 0);
           counter = 1;
         }
@@ -40,7 +40,7 @@ public class TerrainGen : MonoBehaviour
           RenderSettings.skybox = Mountain_sky;
           GameObject.Find("Dessert").transform.position = new Vector3(0, -1000, i);
           i = i + 235;
-          GameObject.Find("Car").transform.position = new Vector3(136, 5, i-20);
+          GameObject.Find("Car").transform.position = new Vector3(136, 4, i-20);
           GameObject.Find("Car").transform.rotation = Quaternion.Euler(0, 180, 0);
           counter = 0;
         }
