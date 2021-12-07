@@ -6,13 +6,13 @@ public class TerrainGen : MonoBehaviour
 {
   public int counter = 0;
   public int i = 235;
-  public AudioSource source;
+  //public AudioSource source;
   public Material Mountain_sky;
   public Material Dessert_sky;
     // Start is called before the first frame update
     void Start()
     {
-      source.Play();
+      //source.Play();
       RenderSettings.skybox = Mountain_sky;
     }
 
@@ -54,9 +54,10 @@ public class TerrainGen : MonoBehaviour
       }
       if(counter == 0)
       {
-        if(GameObject.Find("Car").transform.position.y < 1.5)
+        if(GameObject.Find("Car").transform.position.y < 1)
         {
-          GameObject.Find("Car").transform.position = new Vector3(136, 2, i-20);
+          GameObject.Find("Car").transform.position = new Vector3(136, 3, i-20);
+          GameObject.Find("Car").transform.rotation = Quaternion.Euler(0, 180, 0);
         }
       }
     }
