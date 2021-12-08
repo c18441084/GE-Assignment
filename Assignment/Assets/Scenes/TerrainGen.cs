@@ -6,14 +6,14 @@ public class TerrainGen : MonoBehaviour
 {
   public int counter = 0;
   public int i = 235;
-  //public AudioSource source;
   public Material Mountain_sky;
   public Material Dessert_sky;
+  private Light[] lights;
     // Start is called before the first frame update
     void Start()
     {
-      //source.Play();
       RenderSettings.skybox = Mountain_sky;
+      lights = FindObjectsOfType(typeof(Light)) as Light[];
     }
 
     // Update is called once per frame
@@ -22,6 +22,10 @@ public class TerrainGen : MonoBehaviour
       if(GameObject.Find("Bus").transform.position.z>(i))
       {
         if(counter == 0){
+          foreach(Light light in lights)
+          {
+            light.intensity = 0;
+          }
           GameObject.Find("Dessert").transform.position = new Vector3(0, -5, i);
           GameObject.Find("Bus").transform.position = new Vector3(123, 2, i);
           GameObject.Find("Bus").transform.rotation = Quaternion.Euler(0, 0, 0);
@@ -34,6 +38,10 @@ public class TerrainGen : MonoBehaviour
         }
         else if(counter == 1)
         {
+          foreach(Light light in lights)
+          {
+            light.intensity = 1;
+          }
           GameObject.Find("Mountain").transform.position = new Vector3(0, 0, i);
           GameObject.Find("Bus").transform.rotation = Quaternion.Euler(0, 0, 0);
           GameObject.Find("Bus").transform.position = new Vector3(126, 3, i);
