@@ -9,7 +9,10 @@ public class AIMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(0, 0, moveSpeed * Time.deltaTime);
+        while(transform.position.y > 0)
+        {
+          transform.Translate(0, 0, moveSpeed * Time.deltaTime);
+        }
     }
 
 }
