@@ -4,28 +4,21 @@ using UnityEngine;
 
 public class Audio : MonoBehaviour
 {
-    public AudioClip song;
     public AudioClip crash;
     public AudioClip horn;
     public AudioSource audio;
+    public float scale = 0.7f;
     // Start is called before the first frame update
     void Start()
     {
-        audio = GetComponent<AudioSource>();
-        audio.PlayOneShot(song);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
+      audio.Play();
     }
 
     void onCollosionEnter(Collision collision)
     {
       if(collision.gameObject.name == "Car")
       {
-        audio.PlayOneShot(crash);
+        audio.PlayOneShot(crash, scale);
       }
       if(collision.gameObject.tag == "Lorry")
       {

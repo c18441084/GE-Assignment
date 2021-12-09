@@ -5,7 +5,6 @@ public class PerlinNoise : MonoBehaviour
 
     // I have replaced some variables throughout the code with this 'placeholder' variable.
     // You will need to replace the 'placeholder' throughout the code with the correct variable.
-
     public int terrain_depth = 10;
     public int terrain_width = 256;
     public int terrain_height = 256;
@@ -31,7 +30,7 @@ public class PerlinNoise : MonoBehaviour
     TerrainData GenerateTerrain(TerrainData data)
     {
         data.heightmapResolution = terrain_width + 1;
-        data.size = new Vector3(terrain_width, terrain_depth, terrain_height);  // The Vector3 takes in 3 integer values, but which values and in what order?
+        data.size = new Vector3(terrain_width, terrain_depth, terrain_height);
         data.SetHeights(0, 0, GenerateHeights());
         return data;
     }
@@ -39,12 +38,13 @@ public class PerlinNoise : MonoBehaviour
     float[,] GenerateHeights()
     {
         float[,] heights = new float[terrain_width, terrain_height];
-        for (int x = 0; x < terrain_width; x++) // What variable swaps with the placeholder here?
         {
-            for (int y = 0; y < terrain_width; y++) // What variable swaps with the placeholder here?
+          for(int x = 0; x < terrain_width; x++){
+            for (int y = 0; y < terrain_width; y++)
             {
                 heights[x, y] = CalculateHeights(x, y);
             }
+          }
         }
         return heights;
     }
