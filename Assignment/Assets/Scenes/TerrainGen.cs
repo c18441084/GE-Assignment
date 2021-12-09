@@ -75,5 +75,12 @@ public class TerrainGen : MonoBehaviour
           GameObject.Find("Bus").transform.position = new Vector3(126, 3, i-235);
           GameObject.Find("Bus").transform.rotation = Quaternion.Euler(0, 0, 0);
       }
+
+      if(GameObject.Find("Bus").transform.position.y < -1 || GameObject.Find("Bus").transform.position.y > 26)
+      {
+        GameObject.Find("Bus").transform.position = new Vector3(126, 3, i-235);
+        GameObject.Find("Bus").transform.rotation = Quaternion.Euler(0, 0, 0);
+      }
+
     }
 }
