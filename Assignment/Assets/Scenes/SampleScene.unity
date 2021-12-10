@@ -9367,8 +9367,8 @@ GameObject:
   - component: {fileID: 1283907175}
   - component: {fileID: 1283907174}
   - component: {fileID: 1283907173}
-  - component: {fileID: 1283907178}
   - component: {fileID: 1283907179}
+  - component: {fileID: 1283907178}
   m_Layer: 0
   m_Name: Car
   m_TagString: Untagged
@@ -9403,7 +9403,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 2, y: 2, z: 2}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1283907175
 MeshRenderer:
@@ -11103,7 +11103,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1.1, y: 1.1, z: 1.1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1583487336
 MeshRenderer:

@@ -14,9 +14,8 @@ public class AIMovement : MonoBehaviour
 
     void onCollisionEnter(Collision collision)
     {
-      Destory(collision.gameObject);
-      transform.Translate(0,0,0);
-      Debug("Collision");
+      //Destroy(collision.gameObject);
+      Debug.Log("Collision");
     }
 
 }
