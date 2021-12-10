@@ -10,6 +10,10 @@ public class TerrainGen : MonoBehaviour
   public Material Mountain_sky;
   public Material Dessert_sky;
   public GameObject Car;
+  public GameObject Bus;
+  public GameObject Lorry;
+  public Terrain Dessert;
+  public Terrain Mountain;
   private Light[] lights;
     // Start is called before the first frame update
     void Start()
@@ -26,7 +30,7 @@ public class TerrainGen : MonoBehaviour
     void Update()
     {
       //IF statement to use when the bus goes past the 'i' limit of the 'z' axis
-      if(GameObject.Find("Bus").transform.position.z>(i))
+      if(Bus.transform.position.z>(i))
       {
         //If counter equals zero it generates the mountain terrain
         if(counter == 0){
@@ -34,14 +38,14 @@ public class TerrainGen : MonoBehaviour
           {
             light.intensity = 0;
           }
-          GameObject.Find("Dessert").transform.position = new Vector3(0, -5, i);
-          GameObject.Find("Bus").transform.position = new Vector3(123, 2, i);
-          GameObject.Find("Bus").transform.rotation = Quaternion.Euler(0, 0, 0);
+          Dessert.transform.position = new Vector3(0, -5, i);
+          Bus.transform.position = new Vector3(123, 2, i);
+          Bus.transform.rotation = Quaternion.Euler(0, 0, 0);
           RenderSettings.skybox = Dessert_sky;
-          GameObject.Find("Mountain").transform.position = new Vector3(0, -1000, i);
+          Mountain.transform.position = new Vector3(0, -1000, i);
           i = i + 235;
-          GameObject.Find("Lorry").transform.position = new Vector3(132, 4, i-30);
-          GameObject.Find("Lorry").transform.rotation = Quaternion.Euler(0, 180, 0);
+          Lorry.transform.position = new Vector3(132, 4, i-30);
+          Lorry.transform.rotation = Quaternion.Euler(0, 180, 0);
           counter = 1;
         }
         else if(counter == 1)
@@ -50,11 +54,11 @@ public class TerrainGen : MonoBehaviour
           {
             light.intensity = 1;
           }
-          GameObject.Find("Mountain").transform.position = new Vector3(0, 0, i);
-          GameObject.Find("Bus").transform.rotation = Quaternion.Euler(0, 0, 0);
-          GameObject.Find("Bus").transform.position = new Vector3(126, 3, i);
+          Mountain.transform.position = new Vector3(0, 0, i);
+          Bus.transform.rotation = Quaternion.Euler(0, 0, 0);
+          Bus.transform.position = new Vector3(126, 3, i);
           RenderSettings.skybox = Mountain_sky;
-          GameObject.Find("Dessert").transform.position = new Vector3(0, -1000, i);
+          Dessert.transform.position = new Vector3(0, -1000, i);
           i = i + 235;
           Car.transform.position = new Vector3(135, 2, i-20);
           Car.transform.rotation = Quaternion.Euler(0, 180, 0);
@@ -63,10 +67,10 @@ public class TerrainGen : MonoBehaviour
       }
       if(counter == 1)
       {
-        if(GameObject.Find("Lorry").transform.position.y < 3.4)
+        if(Lorry.transform.position.y < 3.4)
         {
-          GameObject.Find("Lorry").transform.position = new Vector3(132, 4, i);
-          GameObject.Find("Lorry").transform.rotation = Quaternion.Euler(0, 180, 0);
+          Lorry.transform.position = new Vector3(132, 4, i);
+          Lorry.transform.rotation = Quaternion.Euler(0, 180, 0);
         }
       }
       if(counter == 0)
@@ -79,16 +83,16 @@ public class TerrainGen : MonoBehaviour
         }
       }
 
-      if(GameObject.Find("Bus").transform.position.x < 0 || GameObject.Find("Bus").transform.position.x > 255)
+      if(Bus.transform.position.x < 0 || Bus.transform.position.x > 255)
       {
-          GameObject.Find("Bus").transform.position = new Vector3(126, 3, i-235);
-          GameObject.Find("Bus").transform.rotation = Quaternion.Euler(0, 0, 0);
+          Bus.transform.position = new Vector3(126, 3, i-235);
+          Bus.transform.rotation = Quaternion.Euler(0, 0, 0);
       }
 
-      if(GameObject.Find("Bus").transform.position.y < -1 || GameObject.Find("Bus").transform.position.y > 26)
+      if(Bus.transform.position.y < -1 || Bus.transform.position.y > 26)
       {
-        GameObject.Find("Bus").transform.position = new Vector3(126, 3, i-235);
-        GameObject.Find("Bus").transform.rotation = Quaternion.Euler(0, 0, 0);
+        Bus.transform.position = new Vector3(126, 3, i-235);
+        Bus.transform.rotation = Quaternion.Euler(0, 0, 0);
       }
 
     }

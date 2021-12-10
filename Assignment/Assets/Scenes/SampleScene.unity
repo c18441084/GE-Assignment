@@ -11191,6 +11191,11 @@ MonoBehaviour:
   i: 235
   Mountain_sky: {fileID: 2100000, guid: efd1c33efd2d58340b88804268e6833f, type: 2}
   Dessert_sky: {fileID: 2100000, guid: f531e09e2ad2fb440b4eed7605863143, type: 2}
+  Car: {fileID: 1283907172}
+  Bus: {fileID: 1583487332}
+  Lorry: {fileID: 1914827447}
+  Dessert: {fileID: 2100951356}
+  Mountain: {fileID: 715129424}
 --- !u!82 &1583487340
 AudioSource:
   m_ObjectHideFlags: 0
