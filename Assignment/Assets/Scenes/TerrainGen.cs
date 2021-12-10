@@ -17,6 +17,8 @@ public class TerrainGen : MonoBehaviour
       RenderSettings.skybox = Mountain_sky;
       //Array
       lights = FindObjectsOfType(typeof(Light)) as Light[];
+
+      GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -72,6 +74,7 @@ public class TerrainGen : MonoBehaviour
         {
           GameObject.Find("Car").transform.position = new Vector3(135, 2, i);
           GameObject.Find("Car").transform.rotation = Quaternion.Euler(0, 180, 0);
+          GameObject.Find("Car").rigidbody.velocity = 0;
         }
       }
 
