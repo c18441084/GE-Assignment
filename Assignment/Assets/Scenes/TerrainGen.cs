@@ -9,6 +9,7 @@ public class TerrainGen : MonoBehaviour
   public int i = 235;
   public Material Mountain_sky;
   public Material Dessert_sky;
+  public GameObject Car;
   private Light[] lights;
     // Start is called before the first frame update
     void Start()
@@ -55,8 +56,8 @@ public class TerrainGen : MonoBehaviour
           RenderSettings.skybox = Mountain_sky;
           GameObject.Find("Dessert").transform.position = new Vector3(0, -1000, i);
           i = i + 235;
-          GameObject.Find("Car").transform.position = new Vector3(135, 2, i-20);
-          GameObject.Find("Car").transform.rotation = Quaternion.Euler(0, 180, 0);
+          Car.transform.position = new Vector3(135, 2, i-20);
+          Car.transform.rotation = Quaternion.Euler(0, 180, 0);
           counter = 0;
         }
       }
@@ -70,11 +71,11 @@ public class TerrainGen : MonoBehaviour
       }
       if(counter == 0)
       {
-        if(GameObject.Find("Car").transform.position.y < 1.82)
+        if(Car.transform.position.y < 1.82)
         {
-          GameObject.Find("Car").transform.position = new Vector3(135, 2, i);
-          GameObject.Find("Car").transform.rotation = Quaternion.Euler(0, 180, 0);
-          GameObject.Find("Car").rigidbody.velocity = 0;
+          Car.transform.position = new Vector3(135, 2, i);
+          Car.transform.rotation = Quaternion.Euler(0, 180, 0);
+          //GameObject.Find("Car").rigidbody.velocity = 0;
         }
       }
 
