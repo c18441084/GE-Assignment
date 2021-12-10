@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TerrainGen : MonoBehaviour
 {
+  //Attributes
   public int counter = 0;
   public int i = 235;
   public Material Mountain_sky;
@@ -12,13 +13,16 @@ public class TerrainGen : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+      //Changes the sky to a blue sky
       RenderSettings.skybox = Mountain_sky;
+      //Array
       lights = FindObjectsOfType(typeof(Light)) as Light[];
     }
 
     // Update is called once per frame
     void Update()
     {
+      
       if(GameObject.Find("Bus").transform.position.z>(i))
       {
         if(counter == 0){
