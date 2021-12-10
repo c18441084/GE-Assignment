@@ -8,17 +8,17 @@ public class Audio : MonoBehaviour
     public AudioClip horn;
     public AudioSource audio;
     public float scale = 0.7f;
-    
+
     void Start()
     {
       audio.Play();
     }
 
-    void onTriggerEnter(Collider collision)
+    void onCollisionEnter(Collision collision)
     {
+      Debug.Log("Entered");
       if(collision.gameObject.name == "Car")
       {
-        Debug.Log("Entered");
         audio.clip = crash;
         audio.Play();
       }

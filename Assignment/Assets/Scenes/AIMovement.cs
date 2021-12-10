@@ -9,10 +9,15 @@ public class AIMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //while(transform.position.y > 0)
-        //{
-          transform.Translate(0, 0, moveSpeed * Time.deltaTime);
-        //}
+        transform.Translate(0, 0, moveSpeed * Time.deltaTime);
+    }
+
+    void onCollisionEnter(Collision collision)
+    {
+      if(collision.gameObject.name == "Bus")
+      {
+        transform.Translate(0,0,0);
+      }
     }
 
 }
