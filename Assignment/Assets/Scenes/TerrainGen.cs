@@ -79,7 +79,7 @@ public class TerrainGen : MonoBehaviour
         {
           Car.transform.position = new Vector3(135, 2, i);
           Car.transform.rotation = Quaternion.Euler(0, 180, 0);
-          
+
         }
       }
 

@@ -14,10 +14,9 @@ public class AIMovement : MonoBehaviour
 
     void onCollisionEnter(Collision collision)
     {
-      if(collision.gameObject.name == "Bus")
-      {
-        transform.Translate(0,0,0);
-      }
+      Destory(collision.gameObject);
+      transform.Translate(0,0,0);
+      Debug("Collision");
     }
 
 }
