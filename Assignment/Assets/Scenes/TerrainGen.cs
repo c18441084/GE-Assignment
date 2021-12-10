@@ -22,9 +22,10 @@ public class TerrainGen : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      
+      //IF statement to use when the bus goes past the 'i' limit of the 'z' axis
       if(GameObject.Find("Bus").transform.position.z>(i))
       {
+        //If counter equals zero it generates the mountain terrain
         if(counter == 0){
           foreach(Light light in lights)
           {
