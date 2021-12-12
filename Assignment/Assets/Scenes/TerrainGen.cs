@@ -7,6 +7,7 @@ public class TerrainGen : MonoBehaviour
   //Attributes
   public int counter = 0;
   public int i = 235;
+  public PerlinNoise ground;
   public Material Mountain_sky;
   public Material Dessert_sky;
   public GameObject Car;
@@ -105,7 +106,13 @@ public class TerrainGen : MonoBehaviour
           Bus.transform.rotation = Quaternion.Euler(0, 0, 0);
       }
 
-      if(Bus.transform.position.y < -1 || Bus.transform.position.y > 26)
+      if(Bus.transform.position.y < 2.1 || Bus.transform.position.y > 26)
+      {
+        Bus.transform.position = new Vector3(126, 3, i-235);
+        Bus.transform.rotation = Quaternion.Euler(0, 0, 0);
+      }
+
+      if(Input.GetKeyDown("r"))
       {
         Bus.transform.position = new Vector3(126, 3, i-235);
         Bus.transform.rotation = Quaternion.Euler(0, 0, 0);
