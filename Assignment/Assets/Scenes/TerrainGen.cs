@@ -106,11 +106,11 @@ public class TerrainGen : MonoBehaviour
           Bus.transform.rotation = Quaternion.Euler(0, 0, 0);
       }
 
-      if(Bus.transform.position.y < 2.1 || Bus.transform.position.y > 26)
+      /*if(Bus.transform.position.y < 2.1 || Bus.transform.position.y > 26)
       {
         Bus.transform.position = new Vector3(126, 3, i-235);
         Bus.transform.rotation = Quaternion.Euler(0, 0, 0);
-      }
+      }*/
 
       if(Input.GetKeyDown("r"))
       {
