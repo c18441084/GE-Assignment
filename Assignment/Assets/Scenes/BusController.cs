@@ -8,6 +8,10 @@ public class BusController : MonoBehaviour {
     public float rotationSpeed = 180f;
     public float moveSpeed = 20.0f;
 
+    void Start()
+    {
+      Application.targetFrameRate = 20;
+    }
   	// Update is called once per frame
   	void Update () {
           if (Input.GetKey(KeyCode.Escape))
@@ -17,5 +21,11 @@ public class BusController : MonoBehaviour {
           transform.Translate(0, 0, Input.GetAxis("Vertical") * moveSpeed * Time.deltaTime);
           transform.Rotate(0, Input.GetAxis("Horizontal") * rotationSpeed * Time.deltaTime, 0);
 
+      }
+
+      void onCollisionEnter(Collision collision)
+      {
+        //Destroy(collision.gameObject);
+        Debug.Log("bus");
       }
 }

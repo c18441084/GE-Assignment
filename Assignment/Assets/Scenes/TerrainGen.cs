@@ -46,6 +46,8 @@ public class TerrainGen : MonoBehaviour
           i = i + 235;
           Lorry.transform.position = new Vector3(132, 4, i-30);
           Lorry.transform.rotation = Quaternion.Euler(0, 180, 0);
+          Car.transform.position = new Vector3(132, 4, i-100);
+          Car.transform.rotation = Quaternion.Euler(0, 180, 0);
           counter = 1;
         }
         else if(counter == 1)
@@ -60,11 +62,14 @@ public class TerrainGen : MonoBehaviour
           RenderSettings.skybox = Mountain_sky;
           Dessert.transform.position = new Vector3(0, -1000, i);
           i = i + 235;
-          Car.transform.position = new Vector3(135, 2, i-20);
+          Car.transform.position = new Vector3(135, 2, i-100);
           Car.transform.rotation = Quaternion.Euler(0, 180, 0);
+          Lorry.transform.position = new Vector3(135, 2, i-30);
+          Lorry.transform.rotation = Quaternion.Euler(0, 180, 0);
           counter = 0;
         }
       }
+
       if(counter == 1)
       {
         if(Lorry.transform.position.y < 3.4)
@@ -72,7 +77,13 @@ public class TerrainGen : MonoBehaviour
           Lorry.transform.position = new Vector3(132, 4, i);
           Lorry.transform.rotation = Quaternion.Euler(0, 180, 0);
         }
+        if(Car.transform.position.y < 1.7)
+        {
+          Car.transform.position = new Vector3(132, 2, i);
+          Car.transform.rotation = Quaternion.Euler(0, 180, 0);
+        }
       }
+
       if(counter == 0)
       {
         if(Car.transform.position.y < 1.82)
@@ -80,6 +91,11 @@ public class TerrainGen : MonoBehaviour
           Car.transform.position = new Vector3(135, 2, i);
           Car.transform.rotation = Quaternion.Euler(0, 180, 0);
 
+        }
+        if(Lorry.transform.position.y < 1.82)
+        {
+          Lorry.transform.position = new Vector3(135, 2, i);
+          Lorry.transform.rotation = Quaternion.Euler(0, 180, 0);
         }
       }
 
