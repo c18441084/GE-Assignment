@@ -24,6 +24,12 @@ public class BusHealth : MonoBehaviour
       {
         StartCoroutine(Alert());
       }
+
+      if(health <= 0)
+      {
+        Debug.Log("DEAD");
+        Application.LoadLevel("SampleScene");
+      }
     }
 
     IEnumerator Alert()
