@@ -7,10 +7,12 @@ public class BusController : MonoBehaviour {
     [Range(0, 360)]
     public float rotationSpeed = 180f;
     public float moveSpeed = 20.0f;
+    public AudioSource audio;
 
     void Start()
     {
       Application.targetFrameRate = 20;
+      audio.Play();
     }
   	// Update is called once per frame
   	void Update ()

@@ -1,4 +1,4 @@
-using System.Collections;
+/*using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,7 +7,6 @@ public class Audio : MonoBehaviour
     public AudioSource crash;
     public AudioSource horn;
     public AudioSource audio;
-    public float scale = 0.7f;
 
     void update()
     {
@@ -25,4 +24,4 @@ public class Audio : MonoBehaviour
         horn.Play();
       }
     }
-}
+}*/
