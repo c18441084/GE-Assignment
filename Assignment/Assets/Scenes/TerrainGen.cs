@@ -92,13 +92,13 @@ public class TerrainGen : MonoBehaviour
 
       if(counter == 0)
       {
-        if(Car.transform.position.y < 1.82)
+        if(Car.transform.position.y < 1.82 || Car.transform.position.y > 4)
         {
           Car.transform.position = new Vector3(135, 2, i);
           Car.transform.rotation = Quaternion.Euler(0, 180, 0);
 
         }
-        if(Lorry.transform.position.y < 2.7)
+        if(Lorry.transform.position.y < 2.7 || Lorry.transform.position.y > 5)
         {
           Lorry.transform.position = new Vector3(135, 3, i);
           Lorry.transform.rotation = Quaternion.Euler(0, 180, 0);
