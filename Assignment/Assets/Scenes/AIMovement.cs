@@ -11,4 +11,12 @@ public class AIMovement : MonoBehaviour
     {
         transform.Translate(0, 0, moveSpeed * Time.deltaTime);
     }
+
+    void OnCollisionEnter(Collision col)
+    {
+      if(col.gameObject.name == "Bus")
+      {
+        Debug.Log("Worked");
+      }
+    }
 }

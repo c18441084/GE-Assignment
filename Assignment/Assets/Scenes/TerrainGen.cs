@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TerrainGen : MonoBehaviour
 {
   //Attributes
+  public Text showpoints;
   public int counter = 0;
   public int i = 235;
+  public int points = 0;
   public PerlinNoise ground;
   public Material Mountain_sky;
   public Material Dessert_sky;
@@ -30,9 +33,11 @@ public class TerrainGen : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+      showpoints.text = "Portal Points: " + points;
       //IF statement to use when the bus goes past the 'i' limit of the 'z' axis
       if(Bus.transform.position.z>(i))
       {
+        points++;
         //If counter equals zero it generates the mountain terrain
         if(counter == 0){
           foreach(Light light in lights)

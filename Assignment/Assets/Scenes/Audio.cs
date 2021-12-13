@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Audio : MonoBehaviour
 {
-    public AudioClip crash;
-    public AudioClip horn;
+    public AudioSource crash;
+    public AudioSource horn;
     public AudioSource audio;
     public float scale = 0.7f;
 
@@ -14,15 +14,15 @@ public class Audio : MonoBehaviour
       audio.Play();
     }
 
-    /*void OnCollisionEnter(Collision collision)
+    void OnCollisionEnter(Collision collision)
     {
       if(collision.gameObject.name == "Car")
       {
-        audio.clip = crash;
+        crash.Play();
       }
       if(collision.gameObject.name == "Lorry")
       {
-        audio.clip = horn;
+        horn.Play();
       }
-    }*/
+    }
 }

@@ -7,8 +7,10 @@ public class BusHealth : MonoBehaviour
 {
     public Text text;
     public int health;
+    public int alertcolourchange = 0;
     public bool cartriggered = false;
     public bool bustriggered = false;
+    public bool cactustriggered = false;
 
     void Start()
     {
@@ -18,6 +20,26 @@ public class BusHealth : MonoBehaviour
     void Update()
     {
       text.text = "Health: " + health;
+      if(health <= 30)
+      {
+        StartCoroutine(Alert());
+      }
+    }
+
+    IEnumerator Alert()
+    {
+      if(alertcolourchange == 0)
+      {
+        text.color = Color.red;
+        yield return new WaitForSeconds(1);
+        alertcolourchange = 1;
+      }
+      else
+      {
+        text.color = Color.white;
+        yield return new WaitForSeconds(1);
+        alertcolourchange = 0;
+      }
     }
 
 
@@ -25,7 +47,7 @@ public class BusHealth : MonoBehaviour
     {
       if(collision.gameObject.name == "Car")
       {
-        if (cartriggered == false)
+        if(cartriggered == false)
         {
             cartriggered = true;
             StartCoroutine(Car());
@@ -34,7 +56,7 @@ public class BusHealth : MonoBehaviour
 
       if(collision.gameObject.name == "Lorry")
       {
-        if (bustriggered == false)
+        if(bustriggered == false)
         {
             bustriggered = true;
             StartCoroutine(Lorry());
@@ -44,15 +66,16 @@ public class BusHealth : MonoBehaviour
 
     IEnumerator Car()
     {
-        health = health - 20;
+        health = health - 10;
         yield return new WaitForSeconds(1);
         cartriggered = false;
     }
 
     IEnumerator Lorry()
     {
-        health = health - 40;
+        health = health - 30;
         yield return new WaitForSeconds(1);
         bustriggered = false;
     }
+
 }
