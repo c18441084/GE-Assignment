@@ -9,22 +9,21 @@ public class Audio : MonoBehaviour
     public AudioSource audio;
     public float scale = 0.7f;
 
-    void Start()
+    void update()
     {
       audio.Play();
     }
 
-    void onCollisionEnter(Collision collision)
+    void OnCollisionEnter(Collision collision)
     {
       Debug.Log("Entered");
       if(collision.gameObject.name == "Car")
       {
-        audio.clip = crash;
-        audio.Play();
+        audio.clip = horn;
       }
-      if(collision.gameObject.tag == "Lorry")
+      if(collision.gameObject.name == "Lorry")
       {
-        audio.PlayOneShot(horn);
+        audio.clip = horn;
       }
     }
 }

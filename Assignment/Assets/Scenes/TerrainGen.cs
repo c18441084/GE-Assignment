@@ -93,9 +93,9 @@ public class TerrainGen : MonoBehaviour
           Car.transform.rotation = Quaternion.Euler(0, 180, 0);
 
         }
-        if(Lorry.transform.position.y < 1.82)
+        if(Lorry.transform.position.y < 2.7)
         {
-          Lorry.transform.position = new Vector3(135, 2, i);
+          Lorry.transform.position = new Vector3(135, 3, i);
           Lorry.transform.rotation = Quaternion.Euler(0, 180, 0);
         }
       }
@@ -105,12 +105,6 @@ public class TerrainGen : MonoBehaviour
           Bus.transform.position = new Vector3(126, 3, i-235);
           Bus.transform.rotation = Quaternion.Euler(0, 0, 0);
       }
-
-      /*if(Bus.transform.position.y < 2.1 || Bus.transform.position.y > 26)
-      {
-        Bus.transform.position = new Vector3(126, 3, i-235);
-        Bus.transform.rotation = Quaternion.Euler(0, 0, 0);
-      }*/
 
       if(Input.GetKeyDown("r"))
       {

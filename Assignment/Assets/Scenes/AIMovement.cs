@@ -11,11 +11,4 @@ public class AIMovement : MonoBehaviour
     {
         transform.Translate(0, 0, moveSpeed * Time.deltaTime);
     }
-
-    void onCollisionEnter(Collision collision)
-    {
-      //Destroy(collision.gameObject);
-      Debug.Log("Collision");
-    }
-
 }
