@@ -14,16 +14,15 @@ public class Audio : MonoBehaviour
       audio.Play();
     }
 
-    void OnCollisionEnter(Collision collision)
+    /*void OnCollisionEnter(Collision collision)
     {
-      Debug.Log("Entered");
       if(collision.gameObject.name == "Car")
       {
-        audio.clip = horn;
+        audio.clip = crash;
       }
       if(collision.gameObject.name == "Lorry")
       {
         audio.clip = horn;
       }
-    }
+    }*/
 }
