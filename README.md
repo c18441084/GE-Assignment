@@ -65,22 +65,21 @@ This is code:
 ```CS
 //Make a flat part of the terrain
 void flat()
+	{
+		Terrain terrain = GetComponent<Terrain>();
+		int Axis_x = terrain.terrainData.heightmapResolution;
+		int Axis_z = terrain.terrainData.heightmapResolution;
+		float[,] heights = terrain.terrainData.GetHeights(0, 0, Axis_x, Axis_z);
+
+		for (int x = Axis_x / 2 - (terrain_height/2); x < Axis_x / 2 + (terrain_height/2); x++)
 		{
-				Terrain terrain = GetComponent<Terrain>();
-				int Axis_x = terrain.terrainData.heightmapResolution;
-				int Axis_z = terrain.terrainData.heightmapResolution;
-				float[,] heights = terrain.terrainData.GetHeights(0, 0, Axis_x, Axis_z);
-
-				for (int x = Axis_x / 2 - (terrain_height/2); x < Axis_x / 2 + (terrain_height/2); x++)
+				for (int z = Axis_z / 2 - 13; z < Axis_z / 2 + 13; z++)
 				{
-						for (int z = Axis_z / 2 - 13; z < Axis_z / 2 + 13; z++)
-						{
-								heights[x, z] = 0;
-						}
+						heights[x, z] = 0;
 				}
-				terrain.terrainData.SetHeights(0, 0, heights);
-
 		}
+		terrain.terrainData.SetHeights(0, 0, heights);
+	}
 ```
 
 So is this without specifying the language:
