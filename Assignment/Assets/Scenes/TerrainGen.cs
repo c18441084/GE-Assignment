@@ -36,6 +36,7 @@ public class TerrainGen : MonoBehaviour
 
       GetComponent<Rigidbody>();
       //Getting the value of the current highscore
+      /*The two lines commited out below are used to reset the highscore*/
       //PlayerPrefs.SetInt(hs, 0);
       //PlayerPrefs.Save();
       highscore = PlayerPrefs.GetInt(hs, 0);
