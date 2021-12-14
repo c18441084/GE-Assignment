@@ -10,7 +10,33 @@ Class Group: DT211/C
 My project is a game involving in Bus in which you drive through portals to gain points. The game starts off in a mountain terrain with cars and trucks on the other side of the road driving towards you. At the end of the road is a portal that you can drive through to then teleport you to a different terrain.
 
 # Instructions for use
-To drive the bus you can use the arrow keys on the keyboard. You can use the up arrow to accelerate forward and the down arrow to reverse backwards. The left and right arrow allow the bus to rotate so you can point the bus in a certain direction. If you collide or hit an object with the bus you can press "R" key to reset and bring you bus back to the start of the road of the current terrain you are on. You are also trying to avoid objects to not lose health.
+To drive the bus you can use the arrow keys on the keyboard. You can use the up arrow to accelerate forward and the down arrow to reverse backwards. The left and right arrow allow the bus to rotate so you can point the bus in a certain direction. If you collide or hit an object with the bus you can press "R" key to reset and bring you bus back to the start of the road of the current terrain you are on.
+Code to make bus move:
+```CS
+public class BusController : MonoBehaviour {
+
+    //Attributes
+    public float rotationSpeed = 180f;
+    //How fast the Bus will move
+    public int moveSpeed = 20;
+    //AudioSource used to play the background music
+    public AudioSource audio;
+
+    void Start()
+    {
+      //Starting the backgroundmusic
+      audio.Play();
+    }
+  	// Update is called once per frame
+  	void Update ()
+    {
+        //Allowing the user to move the bus
+        transform.Translate(0, 0, Input.GetAxis("Vertical") * moveSpeed * Time.deltaTime);
+        transform.Rotate(0, Input.GetAxis("Horizontal") * rotationSpeed * Time.deltaTime, 0);
+    }
+}
+```
+You are also trying to avoid objects to not lose health.
 
 # How it works
 When the Bus spawns at the start of the game(with some background music playing), your goal is to go through as many portals as possible before running out of health. Each portal is located at the end of each terrain road. Once you go through the portal, a point is added to your portal points which is found in the top left of the screen. There is also a high score in the the top left of the screen which is the highest amount of portal points a player has gotten. In between the player's bus and the portal are vehicles coming down the other side of the road. If the player hits the vehicles it will cause them to lose some health, depending on which vehicle they collide with. If the player collides with a Car, they will only lose a value of 10 off their total health, however if they collide with the truck, they will lose a total of 30 health. If the user's health is equal to or drops below 30, their health display will start changing between the colours white and red, alerting the user that they are low in health. Once the user runs out of health the application restarts and removes all their portal points. When the Bus collides with another vehicle it makes a certain sound. When it collides with the car it makes a car crashing noise and if it collides with the lorry it makes a truck horn sound. When the vehicles reach the end of the road they spawn back to the top of the road where you need to avoid them again. If the bus collides with either vehicle and he knocks the vehicle over or up in the air, it spawns back to the top of the road. When the bus first spawns in you are in a sunny mountain terrain with a straight road and a disconnected white line splitting the road. Which you go through the portal, you teleport to a dessert terrain with dark sky full of stars, with a straight road and bumpy sand dunes on either side of the road. On the sand dunes, you can find cactus scattered across the dessert. Once you reach the portal at the end of the dessert terrain it teleports you back to the mountain terrain. To change the skies of the terrains, I had to import a skybox package off the Unity assets store.
