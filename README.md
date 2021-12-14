@@ -29,7 +29,10 @@ When the Bus spawns at the start of the game(with some background music playing)
 | TerrainGen.cs | Self written |
 
 # References
-[https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwi3ipbYp-P0AhUTlFwKHWPGDpkQFnoECAoQAw&url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3Dbh9ArKrPY8w&usg=AOvVaw187xe932AHmTby07YXyxAZ]() 
+
+1. [https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwi3ipbYp-P0AhUTlFwKHWPGDpkQFnoECAoQAw&url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3Dbh9ArKrPY8w&usg=AOvVaw187xe932AHmTby07YXyxAZ]() : Video used to help with my OnCollisionEnter functions.
+
+2. [https://support.unity.com/hc/en-us/articles/206116056-How-do-I-use-an-Audio-Source-in-a-script- ]() : Link to help me with my audio files.
 
 # What I am most proud of in the assignment
 
