@@ -1,14 +1,16 @@
 # Project Title
 
-Name:
+Name: Niall McNamara
 
-Student Number: 
+Student Number: C18441084
 
-Class Group:
+Class Group: DT211/C
 
 # Description of the project
+My project is a game involving in Bus in which you drive through portals to gain points. The game starts off in a mountain terrain with cars and trucks on the other side of the road driving towards you. At the end of the road is a portal that you can drive through to then teleport you to a different terrain.
 
 # Instructions for use
+To drive the bus you can use the arrow keys on the keyboard. You can use the up arrow to accelerate forward and the down arrow to reverse backwards. The left and right arrow allow the bus to rotate so you can point the bus in a certain direction.
 
 # How it works
 
