@@ -24,7 +24,7 @@ public class BusController : MonoBehaviour {
 
     void Start()
     {
-      //Starting the backgroundmusic
+      //Starting the background music
       audio.Play();
     }
   	// Update is called once per frame
@@ -40,6 +40,26 @@ You are also trying to avoid objects to not lose health.
 
 # How it works
 When the Bus spawns at the start of the game(with some background music playing), your goal is to go through as many portals as possible before running out of health. Each portal is located at the end of each terrain road. Once you go through the portal, a point is added to your portal points which is found in the top left of the screen. There is also a high score in the the top left of the screen which is the highest amount of portal points a player has gotten. In between the player's bus and the portal are vehicles coming down the other side of the road. If the player hits the vehicles it will cause them to lose some health, depending on which vehicle they collide with. If the player collides with a Car, they will only lose a value of 10 off their total health, however if they collide with the truck, they will lose a total of 30 health. If the user's health is equal to or drops below 30, their health display will start changing between the colours white and red, alerting the user that they are low in health. Once the user runs out of health the application restarts and removes all their portal points. When the Bus collides with another vehicle it makes a certain sound. When it collides with the car it makes a car crashing noise and if it collides with the lorry it makes a truck horn sound. When the vehicles reach the end of the road they spawn back to the top of the road where you need to avoid them again. If the bus collides with either vehicle and he knocks the vehicle over or up in the air, it spawns back to the top of the road. When the bus first spawns in you are in a sunny mountain terrain with a straight road and a disconnected white line splitting the road.<img width="665" alt="mountainexample" src="https://user-images.githubusercontent.com/55545170/146027281-eb5f69fc-999c-40e6-a5d2-dd2d476ca5ca.png">
+Code to make road flat:
+```CS
+//Make a flat part of the terrain
+void flat()
+	{
+		Terrain terrain = GetComponent<Terrain>();
+		int Axis_x = terrain.terrainData.heightmapResolution;
+		int Axis_z = terrain.terrainData.heightmapResolution;
+		float[,] heights = terrain.terrainData.GetHeights(0, 0, Axis_x, Axis_z);
+
+		for (int x = Axis_x / 2 - (terrain_height/2); x < Axis_x / 2 + (terrain_height/2); x++)
+		{
+				for (int z = Axis_z / 2 - 13; z < Axis_z / 2 + 13; z++)
+				{
+						heights[x, z] = 0;
+				}
+		}
+		terrain.terrainData.SetHeights(0, 0, heights);
+	}
+```
 When you go through the portal, you teleport to a dessert terrain with dark sky full of stars, with a straight road and bumpy sand dunes on either side of the road. On the sand dunes, you can find cactus scattered across the dessert. Once you reach the portal at the end of the dessert terrain it teleports you back to the mountain terrain. To change the skies of the terrains, I had to import a skybox package off the Unity assets store.<img width="660" alt="dessertexample" src="https://user-images.githubusercontent.com/55545170/146027628-896e983a-1bc7-443d-8a7d-b9892f757ca4.png">
 
 
@@ -60,7 +80,7 @@ When you go through the portal, you teleport to a dessert terrain with dark sky 
 
 1. [Unity video](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwi3ipbYp-P0AhUTlFwKHWPGDpkQFnoECAoQAw&url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3Dbh9ArKrPY8w&usg=AOvVaw187xe932AHmTby07YXyxAZ) : Video used to help with my OnCollisionEnter functions.
 
-2. [Brackey video](https://support.unity.com/hc/en-us/articles/206116056-How-do-I-use-an-Audio-Source-in-a-script- ) : Link to help me with my audio files.
+2. [Unity Tutorial](https://support.unity.com/hc/en-us/articles/206116056-How-do-I-use-an-Audio-Source-in-a-script- ) : Link to help me with my audio files.
 
 # What I am most proud of in the assignment
 The area that I am most proud of in the assignment is the knowledge of the unity software and C# I have gained since starting this assignment. When I started this assignment, I struggled with every aspect of software on Unity, since then I have be able learn and understand many functions in Unity such as adding audio files, collisions, coroutines, movement of objects, procedural generation, etc.
@@ -89,26 +109,6 @@ This is a [hyperlink](http://bryanduggan.org)
 ##### Headings
 
 This is code:
-
-```CS
-//Make a flat part of the terrain
-void flat()
-	{
-		Terrain terrain = GetComponent<Terrain>();
-		int Axis_x = terrain.terrainData.heightmapResolution;
-		int Axis_z = terrain.terrainData.heightmapResolution;
-		float[,] heights = terrain.terrainData.GetHeights(0, 0, Axis_x, Axis_z);
-
-		for (int x = Axis_x / 2 - (terrain_height/2); x < Axis_x / 2 + (terrain_height/2); x++)
-		{
-				for (int z = Axis_z / 2 - 13; z < Axis_z / 2 + 13; z++)
-				{
-						heights[x, z] = 0;
-				}
-		}
-		terrain.terrainData.SetHeights(0, 0, heights);
-	}
-```
 
 So is this without specifying the language:
 

@@ -13,7 +13,7 @@ public class BusController : MonoBehaviour {
 
     void Start()
     {
-      //Starting the backgroundmusic
+      //Starting the background music
       audio.Play();
     }
   	// Update is called once per frame
