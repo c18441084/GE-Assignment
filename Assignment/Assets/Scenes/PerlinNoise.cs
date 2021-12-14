@@ -26,7 +26,6 @@ public class PerlinNoise : MonoBehaviour
         terrain_offset_y = Random.Range(0f, 100f);
     }
 
-    //Function that gathers
     TerrainData GenerateTerrain(TerrainData data)
     {
         data.heightmapResolution = terrain_width + 1;
