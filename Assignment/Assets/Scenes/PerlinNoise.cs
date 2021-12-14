@@ -2,9 +2,7 @@ using UnityEngine;
 
 public class PerlinNoise : MonoBehaviour
 {
-
-    // I have replaced some variables throughout the code with this 'placeholder' variable.
-    // You will need to replace the 'placeholder' throughout the code with the correct variable.
+  //Attributes
     public int terrain_depth = 10;
     public int terrain_width = 256;
     public int terrain_height = 256;
@@ -12,6 +10,7 @@ public class PerlinNoise : MonoBehaviour
     public float terrain_offset_x = 10f;
     public float terrain_offset_y = 10f;
 
+    //Function that starts at the first frame of the scene.
     void Start()
     {
         GenerateOffset();
@@ -20,13 +19,14 @@ public class PerlinNoise : MonoBehaviour
         flat();
     }
 
+    //Function to generate thet offset of the terrain
     void GenerateOffset()
     {
-        // Can you set these float variables to a random value?
         terrain_offset_x = Random.Range(0f, 100f);
         terrain_offset_y = Random.Range(0f, 100f);
     }
 
+    //Function that gathers
     TerrainData GenerateTerrain(TerrainData data)
     {
         data.heightmapResolution = terrain_width + 1;
