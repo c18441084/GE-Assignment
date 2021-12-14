@@ -7,11 +7,16 @@ public class TerrainGen : MonoBehaviour
 {
   //Attributes
   public Text showpoints;
+  public Text High;
   public int speedlimit = 40;
   public int counter = 0;
   public int i = 235;
   public int points = 0;
-  public PerlinNoise ground;
+  public string hs;
+  public int highscore = 0;
+  public int alertscorebeaten = 0;
+  public int scorebeaten = 0;
+  //public PerlinNoise ground;
   public Material Mountain_sky;
   public Material Dessert_sky;
   public GameObject Car;
@@ -20,6 +25,7 @@ public class TerrainGen : MonoBehaviour
   public Terrain Dessert;
   public Terrain Mountain;
   private Light[] lights;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,12 +35,40 @@ public class TerrainGen : MonoBehaviour
       lights = FindObjectsOfType(typeof(Light)) as Light[];
 
       GetComponent<Rigidbody>();
+      //Getting the value of the current highscore
+      //PlayerPrefs.SetInt(hs, 0);
+      //PlayerPrefs.Save();
+      highscore = PlayerPrefs.GetInt(hs, 0);
+
+      Car.transform.position = new Vector3(135, 2, i-100);
+      Car.transform.rotation = Quaternion.Euler(0, 180, 0);
     }
 
     // Update is called once per frame
     void Update()
     {
+      //Displaying the Score of the current game
       showpoints.text = "Portal Points: " + points;
+
+      //Displaying the highest score
+      High.text = "Highscore: " + highscore;
+      //Changing the highscore if it is beaten
+      if(points > highscore)
+      {
+        //Setting the new highscore
+        PlayerPrefs.SetInt(hs, points);
+        //Saving the high score
+        PlayerPrefs.Save();
+        highscore = PlayerPrefs.GetInt(hs, points);
+        //Setting scorebeaten to 1 to start coroutine
+        scorebeaten = 1;
+      }
+
+      if(scorebeaten == 1)
+      {
+        //Starting the coroutine
+        StartCoroutine(ScoreBeaten());
+      }
 
       //IF statement to use when the bus goes past the 'i' limit of the 'z' axis
       if(Bus.transform.position.z>(i))
@@ -141,5 +175,22 @@ public class TerrainGen : MonoBehaviour
         Bus.transform.rotation = Quaternion.Euler(0, 0, 0);
       }
 
+    }
+
+    IEnumerator ScoreBeaten()
+    {
+      //If else statements to change the high score color on the canvas to green and blue to alert they player they have beaten the high score every 1 second
+      if(alertscorebeaten == 0)
+      {
+        High.color = Color.blue;
+        yield return new WaitForSeconds(1);
+        alertscorebeaten = 1;
+      }
+      else
+      {
+        High.color = Color.green;
+        yield return new WaitForSeconds(1);
+        alertscorebeaten = 0;
+      }
     }
 }
