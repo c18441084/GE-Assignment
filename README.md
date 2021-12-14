@@ -120,3 +120,4 @@ When you go through the portal, you teleport to a dessert terrain with dark sky 
 The area that I am most proud of in the assignment is the knowledge of the unity software and C# I have gained since starting this assignment. When I started this assignment, I struggled with every aspect of software on Unity, since then I have be able learn and understand many functions in Unity such as adding audio files, collisions, coroutines, movement of objects, procedural generation, etc.
 
 # Proposal submitted earlier can go here:
+The project I would like to do is a driving game across a landscape that enters a different landscape with relaxing background music to give the user a relax feel to the game. Also to have other vehicles driving on the other side of the road. There will also be a points system.
