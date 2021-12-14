@@ -39,7 +39,33 @@ public class BusController : MonoBehaviour {
 You are also trying to avoid objects to not lose health.
 
 # How it works
-When the Bus spawns at the start of the game(with some background music playing), your goal is to go through as many portals as possible before running out of health. Each portal is located at the end of each terrain road. Once you go through the portal, a point is added to your portal points which is found in the top left of the screen. There is also a high score in the the top left of the screen which is the highest amount of portal points a player has gotten. In between the player's bus and the portal are vehicles coming down the other side of the road. If the player hits the vehicles it will cause them to lose some health, depending on which vehicle they collide with. If the player collides with a Car, they will only lose a value of 10 off their total health, however if they collide with the truck, they will lose a total of 30 health. If the user's health is equal to or drops below 30, their health display will start changing between the colours white and red, alerting the user that they are low in health. Once the user runs out of health the application restarts and removes all their portal points. When the Bus collides with another vehicle it makes a certain sound. When it collides with the car it makes a car crashing noise and if it collides with the lorry it makes a truck horn sound. When the vehicles reach the end of the road they spawn back to the top of the road where you need to avoid them again. If the bus collides with either vehicle and he knocks the vehicle over or up in the air, it spawns back to the top of the road. When the bus first spawns in you are in a sunny mountain terrain with a straight road and a disconnected white line splitting the road.<img width="665" alt="mountainexample" src="https://user-images.githubusercontent.com/55545170/146027281-eb5f69fc-999c-40e6-a5d2-dd2d476ca5ca.png">
+When the Bus spawns at the start of the game(with some background music playing), your goal is to go through as many portals as possible before running out of health. Each portal is located at the end of each terrain road. Once you go through the portal, a point is added to your portal points which is found in the top left of the screen. There is also a high score in the the top left of the screen which is the highest amount of portal points a player has gotten. In between the player's bus and the portal are vehicles coming down the other side of the road. If the player hits the vehicles it will cause them to lose some health, depending on which vehicle they collide with. If the player collides with a Car, they will only lose a value of 10 off their total health, however if they collide with the truck, they will lose a total of 30 health. In the BusHealth script I use a coroutine to have a break of a second after impact with the car or lorry to prevent a constant loss of health.
+```CS
+if(collision.gameObject.name == "Car")
+{
+  //If the cartriggered is false it enters the statement
+  //This true and false method is used to keep the bus constantly reducing health when it triggers with on object
+  if(cartriggered == false)
+  {
+      //Setting cartriggered to true so that it doesn't enter the statement again
+      cartriggered = true;
+      //Calling the coroutine function
+      StartCoroutine(Car());
+  }
+}
+
+//------------------------------------------------------------------------------------
+//coroutine function for car
+IEnumerator Car()
+{
+    //taking a value of 10 off the player's health
+    health = health - 10;
+    //Waiting 1 second before setting the cartriggered back to false
+    yield return new WaitForSeconds(1);
+    cartriggered = false;
+}
+```
+If the user's health is equal to or drops below 30, their health display will start changing between the colours white and red, alerting the user that they are low in health. Once the user runs out of health the application restarts and removes all their portal points. When the Bus collides with another vehicle it makes a certain sound. When it collides with the car it makes a car crashing noise and if it collides with the lorry it makes a truck horn sound. When the vehicles reach the end of the road they spawn back to the top of the road where you need to avoid them again. If the bus collides with either vehicle and he knocks the vehicle over or up in the air, it spawns back to the top of the road. When the bus first spawns in you are in a sunny mountain terrain with a straight road and a disconnected white line splitting the road.<img width="665" alt="mountainexample" src="https://user-images.githubusercontent.com/55545170/146027281-eb5f69fc-999c-40e6-a5d2-dd2d476ca5ca.png">
 
 
 Code to make the terrain flat for the road:
@@ -88,60 +114,3 @@ When you go through the portal, you teleport to a dessert terrain with dark sky 
 The area that I am most proud of in the assignment is the knowledge of the unity software and C# I have gained since starting this assignment. When I started this assignment, I struggled with every aspect of software on Unity, since then I have be able learn and understand many functions in Unity such as adding audio files, collisions, coroutines, movement of objects, procedural generation, etc.
 
 # Proposal submitted earlier can go here:
-
-## This is how to markdown text:
-
-This is *emphasis*
-
-This is a bulleted list
-
-- Item
-- Item
-
-This is a numbered list
-
-1. Item
-1. Item
-
-This is a [hyperlink](http://bryanduggan.org)
-
-# Headings
-## Headings
-#### Headings
-##### Headings
-
-This is code:
-
-So is this without specifying the language:
-
-```
-public void render()
-{
-	ui.noFill();
-	ui.stroke(255);
-	ui.rect(x, y, width, height);
-	ui.textAlign(PApplet.CENTER, PApplet.CENTER);
-	ui.text(text, x + width * 0.5f, y + height * 0.5f);
-}
-```
-
-This is an image using a relative URL:
-
-![An image](images/p8.png)
-
-This is an image using an absolute URL:
-
-![A different image](https://bryanduggandotorg.files.wordpress.com/2019/02/infinite-forms-00045.png?w=595&h=&zoom=2)
-
-This is a youtube video:
-
-[![YouTube](http://img.youtube.com/vi/J2kHSSFA4NU/0.jpg)](https://www.youtube.com/watch?v=J2kHSSFA4NU)
-
-This is a table:
-
-| Heading 1 | Heading 2 |
-|-----------|-----------|
-|Some stuff | Some more stuff in this column |
-|Some stuff | Some more stuff in this column |
-|Some stuff | Some more stuff in this column |
-|Some stuff | Some more stuff in this column |
